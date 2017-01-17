@@ -8,20 +8,22 @@
 
 import UIKit
 
-class ActionListTableViewController: UITableViewController {
+class ActionListTableViewController: UITableViewController, ActionDetailTableViewControllerDelegate {
+    
+    var actionItems = [ActionItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         var items = [UIBarButtonItem]()
         items.append(UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem .edit,
-                                                              target: self,
-                                                              action: #selector(ActionListTableViewController.edit)))
+                                     target: self,
+                                     action: #selector(ActionListTableViewController.edit)))
         items.append(UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem .add,
-                                         target: self,
-                                         action: #selector(ActionListTableViewController.add)))
-
-         self.navigationItem.rightBarButtonItems = items
+                                     target: self,
+                                     action: #selector(ActionListTableViewController.add)))
+        
+        self.navigationItem.rightBarButtonItems = items
     }
     
     func edit() {
@@ -29,7 +31,7 @@ class ActionListTableViewController: UITableViewController {
     }
     
     func add() {
-        print("Add button tapped")
+        self.performSegue(withIdentifier: "AddAction", sender: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,20 +43,40 @@ class ActionListTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        print("Table view called with \(actionItems.count) rows")
+        return actionItems.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActionItem", for: indexPath)
-
-        // Configure the cell...
+        let action = actionItems[indexPath.row]
+        let label = cell.viewWithTag(1000) as! UILabel
+        label.text = action.text
+        let labeln = cell.viewWithTag(1001) as! UILabel
+        labeln.text = String(action.points)
 
         return cell
+    }
+    
+    // MARK: - ActionDetailTableViewControllerDelegate
+    
+    func actionDetailTableViewControllerDidCancel(_ controller: ActionDetailTableViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+
+    func actionDetailTableViewController(_ controller: ActionDetailTableViewController, didFinishAddingAction action:ActionItem) {
+        let newRowIndex = actionItems.count
+        actionItems.append(action)
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
+        dismiss(animated: true, completion: nil)
     }
 
 
@@ -93,14 +115,14 @@ class ActionListTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddAction" {
+            let navigationController = segue.destination as! UINavigationController
+            let controller = navigationController.topViewController as! ActionDetailTableViewController
+            controller.delegate = self
+        }
     }
-    */
-
 }
