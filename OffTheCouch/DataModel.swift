@@ -14,6 +14,7 @@ class DataModel {
     
     init() {
         loadActions()
+        calculateAccumulatedPoints()
     }
     
     func documentsDirectory() -> String {
@@ -43,4 +44,14 @@ class DataModel {
             }
         }
     }
+    
+    func calculateAccumulatedPoints() {
+        accumulatedPoints = 0
+        for action in actions {
+            if action.checked {
+                accumulatedPoints = accumulatedPoints + (action.points * action.numberOfChecks)
+            }
+        }
+    }
+
 }

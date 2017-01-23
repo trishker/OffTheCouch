@@ -32,5 +32,10 @@ class ActionItem: NSObject, NSCoding {
         aCoder.encode(checked, forKey: "Checked")
         aCoder.encode(numberOfChecks, forKey: "NumberOfChecks")
     }
+    
+    func incrementChecked() {
+        checked = true
+        numberOfChecks += 1
+    }
 
 }

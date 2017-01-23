@@ -12,6 +12,14 @@ class LaunchViewController: UIViewController {
     
     var dataModel: DataModel!
     
+    @IBAction func startOver(_ sender: UIButton) {
+        for action in dataModel.actions {
+            action.checked = false
+            action.numberOfChecks = 0
+        }
+        dataModel.calculateAccumulatedPoints()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
