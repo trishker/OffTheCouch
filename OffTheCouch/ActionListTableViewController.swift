@@ -10,7 +10,7 @@ import UIKit
 
 class ActionListTableViewController: UITableViewController, ActionDetailTableViewControllerDelegate {
     
-    var actionItems = [ActionItem]()
+    var dataModel: DataModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,13 +49,12 @@ class ActionListTableViewController: UITableViewController, ActionDetailTableVie
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print("Table view called with \(actionItems.count) rows")
-        return actionItems.count
+        return dataModel.actions.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActionItem", for: indexPath)
-        let action = actionItems[indexPath.row]
+        let action = dataModel.actions[indexPath.row]
         let label = cell.viewWithTag(1000) as! UILabel
         label.text = action.text
         let labeln = cell.viewWithTag(1001) as! UILabel
@@ -71,8 +70,8 @@ class ActionListTableViewController: UITableViewController, ActionDetailTableVie
     }
 
     func actionDetailTableViewController(_ controller: ActionDetailTableViewController, didFinishAddingAction action:ActionItem) {
-        let newRowIndex = actionItems.count
-        actionItems.append(action)
+        let newRowIndex = dataModel.actions.count
+        dataModel.actions.append(action)
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)

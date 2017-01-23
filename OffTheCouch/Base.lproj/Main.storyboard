@@ -32,7 +32,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Lrw-hZ-6XH">
                     <connections>
-                        <segue destination="5fm-ia-rw8" kind="show" id="Bvf-ON-pLz"/>
+                        <segue destination="5fm-ia-rw8" kind="show" identifier="ShowActionList" id="Bvf-ON-pLz"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

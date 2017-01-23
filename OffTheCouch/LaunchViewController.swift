@@ -9,7 +9,9 @@
 import UIKit
 
 class LaunchViewController: UIViewController {
-
+    
+    var dataModel: DataModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -24,6 +26,16 @@ class LaunchViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowActionList" {
+            let controller = segue.destination as! ActionListTableViewController
+            controller.dataModel = dataModel
+        }
+    }
+
 
 
 }

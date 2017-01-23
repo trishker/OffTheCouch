@@ -15,6 +15,7 @@
 		CC16AE1E1E2912B700C070E1 /* ActionListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC16AE1D1E2912B700C070E1 /* ActionListTableViewController.swift */; };
 		CC16AE201E2A7C5200C070E1 /* ActionDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC16AE1F1E2A7C5200C070E1 /* ActionDetailTableViewController.swift */; };
 		CC16AE221E2A800B00C070E1 /* ActionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC16AE211E2A800B00C070E1 /* ActionItem.swift */; };
+		CC16AE241E30F30B00C070E1 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC16AE231E30F30B00C070E1 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CC16AE1D1E2912B700C070E1 /* ActionListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionListTableViewController.swift; sourceTree = "<group>"; };
 		CC16AE1F1E2A7C5200C070E1 /* ActionDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDetailTableViewController.swift; sourceTree = "<group>"; };
 		CC16AE211E2A800B00C070E1 /* ActionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionItem.swift; sourceTree = "<group>"; };
+		CC16AE231E30F30B00C070E1 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				CC16AE1D1E2912B700C070E1 /* ActionListTableViewController.swift */,
 				CC16AE1F1E2A7C5200C070E1 /* ActionDetailTableViewController.swift */,
 				CC16AE211E2A800B00C070E1 /* ActionItem.swift */,
+				CC16AE231E30F30B00C070E1 /* DataModel.swift */,
 				CC16AE0D1E27A8EB00C070E1 /* Main.storyboard */,
 				CC16AE101E27A8EB00C070E1 /* Assets.xcassets */,
 				CC16AE121E27A8EB00C070E1 /* LaunchScreen.storyboard */,
@@ -151,6 +154,7 @@
 				CC16AE0C1E27A8EB00C070E1 /* LaunchViewController.swift in Sources */,
 				CC16AE0A1E27A8EB00C070E1 /* AppDelegate.swift in Sources */,
 				CC16AE221E2A800B00C070E1 /* ActionItem.swift in Sources */,
+				CC16AE241E30F30B00C070E1 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
