@@ -120,11 +120,51 @@
                     </tableView>
                     <connections>
                         <segue destination="E3d-cz-NBT" kind="show" identifier="AddAction" id="y2e-BB-eRE"/>
+                        <segue destination="7Xh-j0-Sjm" kind="show" identifier="Show Progress" id="gYl-lE-UYX"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEJ-z9-7Ps" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1946.25" y="801.76056338028172"/>
+        </scene>
+        <!--Progress View Controller-->
+        <scene sceneID="TYl-Aa-i9k">
+            <objects>
+                <viewController id="7Xh-j0-Sjm" customClass="ProgressViewController" customModule="OffTheCouch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FA8-88-K3m"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Ls-ln-cjF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="heP-FO-wS6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AUU-LY-5DJ">
+                                <rect key="frame" x="146" y="483" width="29" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Vl3-8h-l0d"/>
+                                    <constraint firstAttribute="width" constant="29" id="yFg-Oq-eOD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AUU-LY-5DJ" firstAttribute="centerX" secondItem="heP-FO-wS6" secondAttribute="centerX" id="GAf-3Z-BMP"/>
+                            <constraint firstItem="9Ls-ln-cjF" firstAttribute="top" secondItem="AUU-LY-5DJ" secondAttribute="bottom" constant="20" id="cGB-ed-QeZ"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="accumulatedPointsLabel" destination="AUU-LY-5DJ" id="nVt-ui-OzR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HOK-QC-Mph" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2081" y="1533"/>
         </scene>
         <!--Action Detail Table View Controller-->
         <scene sceneID="fZs-Sl-biw">
