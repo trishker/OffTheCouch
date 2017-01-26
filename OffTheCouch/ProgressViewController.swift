@@ -23,6 +23,7 @@ class ProgressViewController: UIViewController {
     weak var delegate: ProgressViewControllerDelegate?
 
     @IBOutlet weak var accumulatedPointsLabel: UILabel!
+    @IBOutlet weak var wellDoneYouLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,7 @@ class ProgressViewController: UIViewController {
                                                                 target: self,
                                                                 action: #selector(ProgressViewController.cancel))
         accumulatedPointsLabel.text = String(dataModel.accumulatedPoints)
+        updateUI()
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,11 +55,13 @@ class ProgressViewController: UIViewController {
         }
     }
     
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func updateUI() {
+        if dataModel.accumulatedPoints >= 100 {
+            wellDoneYouLabel.isHidden = false
+            accumulatedPointsLabel.text = ""
+        } else {
+            wellDoneYouLabel.isHidden = true
+        }
     }
 
 }
