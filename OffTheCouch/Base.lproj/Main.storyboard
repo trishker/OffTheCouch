@@ -41,6 +41,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YQB-qj-Sxa">
+                                <rect key="frame" x="67" y="87.5" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="GPk-f5-sKr"/>
+                                    <constraint firstAttribute="height" constant="200" id="Vek-cK-b29"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hoj-qY-hvw">
+                                <rect key="frame" x="400.5" y="87.5" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="TcW-Mf-EHm"/>
+                                    <constraint firstAttribute="width" constant="200" id="jN8-Fo-8jR"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Well done you!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9v-hU-4ti">
                                 <rect key="frame" x="92.5" y="177" width="148.5" height="21.5"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
@@ -54,7 +68,11 @@
                             <constraint firstItem="f9v-hU-4ti" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="0.5" identifier="welldoneTopHorizontal" id="6vP-mo-goD"/>
                             <constraint firstItem="f9v-hU-4ti" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" identifier="welldoneTopVertical" id="C6o-1B-I7V"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="m3C-Sa-ZD2" secondAttribute="bottom" constant="8" id="DEk-cM-cjh"/>
+                            <constraint firstItem="hoj-qY-hvw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FOL-iA-XuA"/>
+                            <constraint firstItem="YQB-qj-Sxa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Gwg-4z-O51"/>
                             <constraint firstItem="8aA-5S-VvM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="1.5" id="KL0-9J-XWr"/>
+                            <constraint firstItem="YQB-qj-Sxa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="0.5" id="Ki4-fM-9HR"/>
+                            <constraint firstItem="hoj-qY-hvw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="1.5" id="Kjf-gm-ROl"/>
                             <constraint firstItem="8aA-5S-VvM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ilR-Uu-fPr"/>
                             <constraint firstItem="m3C-Sa-ZD2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vUv-Ih-6kY"/>
                         </constraints>
@@ -64,6 +82,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="jD0-zK-odO"/>
                     <connections>
+                        <outlet property="animatedJumpView" destination="hoj-qY-hvw" id="LTi-rL-VUZ"/>
+                        <outlet property="couchView" destination="YQB-qj-Sxa" id="MWc-A0-A9R"/>
                         <outlet property="offTheCouchLabel" destination="8aA-5S-VvM" id="KRZ-iC-Ml7"/>
                         <outlet property="wellDoneYouLabel" destination="f9v-hU-4ti" id="1Xr-O0-jnM"/>
                     </connections>
@@ -176,19 +196,39 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Or-GB-46T">
+                                <rect key="frame" x="67" y="87.5" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Oph-vW-jP3"/>
+                                    <constraint firstAttribute="width" constant="200" id="zuD-KQ-Mqc"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yzm-Yx-j6C">
+                                <rect key="frame" x="400.5" y="87.5" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="hBh-Vh-0O0"/>
+                                    <constraint firstAttribute="height" constant="200" id="zpK-ji-FAV"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xGp-4i-gE2" firstAttribute="centerX" secondItem="heP-FO-wS6" secondAttribute="centerX" multiplier="0.5" id="2OF-s7-hak"/>
                             <constraint firstItem="AUU-LY-5DJ" firstAttribute="centerX" secondItem="heP-FO-wS6" secondAttribute="centerX" id="GAf-3Z-BMP"/>
+                            <constraint firstItem="Yzm-Yx-j6C" firstAttribute="centerX" secondItem="heP-FO-wS6" secondAttribute="centerX" multiplier="1.5" id="HdG-cr-kEU"/>
+                            <constraint firstItem="5Or-GB-46T" firstAttribute="centerY" secondItem="heP-FO-wS6" secondAttribute="centerY" id="L9t-TW-OXy"/>
                             <constraint firstItem="xGp-4i-gE2" firstAttribute="centerY" secondItem="heP-FO-wS6" secondAttribute="centerY" id="Wnm-zD-vd4"/>
                             <constraint firstItem="9Ls-ln-cjF" firstAttribute="top" secondItem="AUU-LY-5DJ" secondAttribute="bottom" constant="20" id="cGB-ed-QeZ"/>
+                            <constraint firstItem="Yzm-Yx-j6C" firstAttribute="centerY" secondItem="heP-FO-wS6" secondAttribute="centerY" id="jkH-jW-2tO"/>
+                            <constraint firstItem="5Or-GB-46T" firstAttribute="centerX" secondItem="heP-FO-wS6" secondAttribute="centerX" multiplier="0.5" id="mwX-jM-V20"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="accumulatedPointsLabel" destination="AUU-LY-5DJ" id="nVt-ui-OzR"/>
+                        <outlet property="animatedJumpView" destination="Yzm-Yx-j6C" id="wad-jE-ptm"/>
+                        <outlet property="couchView" destination="5Or-GB-46T" id="Cqo-0U-CeS"/>
                         <outlet property="wellDoneYouLabel" destination="xGp-4i-gE2" id="ytX-1p-dzW"/>
                     </connections>
                 </viewController>

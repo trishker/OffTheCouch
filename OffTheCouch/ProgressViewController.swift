@@ -24,6 +24,8 @@ class ProgressViewController: UIViewController {
 
     @IBOutlet weak var accumulatedPointsLabel: UILabel!
     @IBOutlet weak var wellDoneYouLabel: UILabel!
+    @IBOutlet weak var couchView: UIImageView!
+    @IBOutlet weak var animatedJumpView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +35,11 @@ class ProgressViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem .cancel,
                                                                 target: self,
                                                                 action: #selector(ProgressViewController.cancel))
-        accumulatedPointsLabel.text = String(dataModel.accumulatedPoints)
+        updateUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         updateUI()
     }
 
@@ -55,9 +61,52 @@ class ProgressViewController: UIViewController {
         }
     }
     
+    func add(image name: String, toImageView: UIImageView) {
+        if name == "jump" {
+            let image = UIImage(named: name)
+            let imageView = UIImageView(image: image)
+            toImageView.addSubview(imageView)
+            
+            imageView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            imageView.alpha = 0
+            
+            UIView.animate(withDuration: 0.3) {
+                imageView.alpha = CGFloat(self.dataModel.accumulatedPoints)/100
+                imageView.transform = CGAffineTransform.identity
+            }
+            //           animationBehavior.addAnimation(imageView)
+            
+        } else if name == "couch" {
+            let image = UIImage(named: name)
+            let imageView = UIImageView(image: image)
+            toImageView.addSubview(imageView)
+            imageView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            imageView.alpha = 0
+            
+            UIView.animate(withDuration: 0.3) {
+                imageView.alpha = 1 - (CGFloat(self.dataModel.accumulatedPoints)/100)
+                imageView.transform = CGAffineTransform.identity
+            }
+        }
+    }
+
+    func add(label: UILabel) {
+        label.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        label.alpha = 0
+        label.isHidden = false
+        UIView.animate(withDuration: 0.3) {
+            label.transform = CGAffineTransform.identity
+            label.alpha = 1
+        }
+    }
+    
     func updateUI() {
+        print("Accumulated points is \(dataModel.accumulatedPoints)")
+        accumulatedPointsLabel.text = String(dataModel.accumulatedPoints)
+        add(image: "couch", toImageView: couchView)
+        add(image: "jump", toImageView: animatedJumpView)
         if dataModel.accumulatedPoints >= 100 {
-            wellDoneYouLabel.isHidden = false
+            add(label: wellDoneYouLabel)
             accumulatedPointsLabel.text = ""
         } else {
             wellDoneYouLabel.isHidden = true

@@ -52,6 +52,9 @@ class DataModel {
                 accumulatedPoints = accumulatedPoints + (action.points * action.numberOfChecks)
             }
         }
+        if (accumulatedPoints > 100) {
+            accumulatedPoints = 100
+        }
     }
 
 }
